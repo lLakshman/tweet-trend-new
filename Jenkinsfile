@@ -1,17 +1,22 @@
 pipeline {
-    agent { 
-        node {
-          label 'maven'
-        }
-         
-    }
-    environment {
-        PATH = "/opt/apache-maven-3.9.9/bin:$PATH"
-    }
+    agent any
+
     stages {
-        stage("build") {
+        stage('Build Backend') {
             steps {
-                sh 'mvn clean deploy'
+                echo 'Building the backend...'
+            }
+        }
+
+        stage('Build Frontend') {
+            steps {
+                echo 'Building the frontend...'
+            }
+        }
+
+        stage('Build Documentation') {
+            steps {
+                echo 'Building the documentation...'
             }
         }
     }
